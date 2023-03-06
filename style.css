@@ -1,0 +1,257 @@
+/* makes sizing simpler */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --spaceLeft: 50%;
+  --spaceTop: 10px;
+  --enemyLeft: 50%;
+  --enemyRight: 0px;
+  --ballTop: 550px;
+  --ballLeft: 2px;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* dark mode user-agent-styles */
+
+html {
+  color-scheme: dark light;
+}
+
+/* min body height */
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: #00bfff;
+  color: white;
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+.cube {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+  transition: all 0.3s;
+  border-radius: 50%;
+}
+
+.wrapper {
+  position: relative;
+  border: 1px solid red;
+  width: 900px;
+  height: 550px;
+  display: grid;
+  place-content: center;
+}
+
+.cube-div {
+  position: relative;
+  width: 700px;
+  height: 450px;
+  margin-bottom: 6.5rem;
+}
+
+.score {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin: 9rem 0 0.5rem 0;
+}
+
+.timer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+.modal-content {
+  background-color: #214747;
+  margin: 10% auto; /* 10% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  z-index: 100;
+  font-size: 1.5rem;
+}
+
+/* Close button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.active {
+  display: block;
+}
+
+.animated-btn {
+  background: #ff7f50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.animated-btn::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.animated-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.animated-btn:hover {
+  transform: translateY(-2px);
+}
+
+.flex {
+  display: flex;
+  gap: 2rem;
+}
+
+.scoreBoard {
+  background-color: white;
+  width: 300px;
+  height: max-content;
+  color: teal;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.scoreBoard h3 {
+  font-size: 1rem;
+  color: coral;
+  margin-bottom: 1rem;
+}
+
+li {
+  background-color: #e0e0e0;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  list-style: none;
+}
+
+p:empty {
+  display: none;
+}
+
+.first-alert {
+  position: absolute;
+  width: 400px;
+  padding: 0.5rem;
+  color: coral;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 2;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.big-alert::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #0000005d;
+  transition: all 2s;
+}
+
+.lets {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0.5rem 9rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+  overflow: hidden;
+}
+.lets:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.big-alert.active {
+  transform: translateY(-5000%);
+  transition: all 2s;
+}
+
+.big-alert.active .first-alert {
+  width: 50%;
+  border-radius: 50%;
+  transition: all 2s;
+}
+
+.big-alert.active .first-alert * {
+  display: none;
+}

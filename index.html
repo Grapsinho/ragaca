@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flex">
+      <div>
+        <div class="wrapper">
+          <p class="score"></p>
+          <p class="timer"></p>
+
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p class="modalTxt"></p>
+            </div>
+          </div>
+
+          <div class="cube-div">
+            <div class="cube"></div>
+          </div>
+        </div>
+        <button class="animated-btn start">Start Timer</button>
+      </div>
+
+      <div class="scoreBoard">
+        <h3>Score Board:</h3>
+        <ul id="ul-el"></ul>
+      </div>
+    </div>
+
+    <div class="big-alert">
+      <div class="first-alert">
+        <p class="first-txt">
+          მოგესალმები შენი მთავარი დავალებაა რომ 20 წამში რაც შეიძლება მეტი ქულა
+          აიღო ბუშტების გახეთქვით(ასერომვთქვათ =) ბუშტებს ხეთქავ მაუსის
+          დახმარებით თუ ყველაფერი გასაგებია დააწექი Let's Go
+        </p>
+        <button class="lets">Lets Go</button>
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
